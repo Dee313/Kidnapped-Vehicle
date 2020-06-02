@@ -11,6 +11,7 @@
 
 #include <string>
 #include <vector>
+#include <random>
 #include "helper_functions.h"
 
 struct Particle {
@@ -63,8 +64,10 @@ class ParticleFilter {
    * @param predicted Vector of predicted landmark observations
    * @param observations Vector of landmark observations
    */
-  void dataAssociation(std::vector<LandmarkObs> predicted, 
-                       std::vector<LandmarkObs>& observations);
+  
+// Removing this function (not called by the grading code)
+  // void dataAssociation(std::vector<LandmarkObs> predicted, 
+  //                      std::vector<LandmarkObs>& observations);
   
   /**
    * updateWeights Updates the weights for each particle based on the likelihood
@@ -120,6 +123,9 @@ class ParticleFilter {
   
   // Vector of weights of all particles
   std::vector<double> weights; 
+  
+  // random noise engine
+  std::default_random_engine gen;
 };
 
 #endif  // PARTICLE_FILTER_H_
